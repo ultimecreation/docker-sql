@@ -1,0 +1,4 @@
+main-postres-pgadmin/.docker
+main-mongo-db/.docker
+adminer/.docker
+main-mysql-phpmyadmin/mysql-data
