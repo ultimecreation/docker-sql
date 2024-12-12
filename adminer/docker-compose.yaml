@@ -1,0 +1,42 @@
+services:
+  adminer:
+    image: dockette/adminer:full
+    restart: no
+    ports:
+      - 8081:80
+    links:
+      - dbMysql
+      - dbPostgres
+      - dbMongo
+
+  dbPostgres:
+    image: postgres:10
+    restart: on-failure
+    volumes:
+      - ./.docker/postgres/data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: mydb
+  dbMysql:
+    image: mysql:8.0.3
+    restart: on-failure
+    volumes:
+      - ./.docker/mysql-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: mydb
+  dbMongo:
+    image: mongo:3.6.2
+    restart: on-failure
+    volumes:
+      - ./.docker/mongodb/data:/data/db
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: changeme

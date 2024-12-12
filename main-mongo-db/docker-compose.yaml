@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  mongo:
+    image: mongo:7.0
+    container_name: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    restart: on-failure
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./.docker/mongodb/data:/data/db
+    networks:
+      - main-mongo-db
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongogui
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=root
+      - ME_CONFIG_MONGODB_URL=mongodb://root:root@mongo:27017/?authSource=admin
+      - ME_CONFIG_BASICAUTH_USERNAME=root
+      - ME_CONFIG_BASICAUTH_PASSWORD=root
+    depends_on:
+      - mongo
+    restart: on-failure
+    ports:
+      - "8081:8081"
+    networks:
+      - main-mongo-db
+
+networks:
+  main-mongo-db:

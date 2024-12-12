@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    restart: on-failure
+    volumes:
+      - ./.docker/postgres/data:/var/lib/postgresql/data
+      - ./.docker/postgres/config/cutom-postgres.conf:/usr/local/share/postgresql/postgresql.conf
+    networks:
+      - main-postgres-pgadmin
+      
+  pgadmin:
+    image: dpage/pgadmin4:7
+    container_name: pgadmin
+    restart: on-failure
+    ports:
+      - "5050:5050"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_LISTEN_PORT=5050
+    depends_on: 
+      - postgres
+    networks:
+      - main-postgres-pgadmin
+    
+networks: 
+  main-postgres-pgadmin:
+  
