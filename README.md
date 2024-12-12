@@ -42,12 +42,13 @@ pgadmin use these credentials
 
 Note: when you create a new server of databases, you will be asked to enter a username and password. use `root` for both
 
+mongodb GUI uses these credentials 
+- user => root
+- password => root
 
+![mongo-gui](https://github.com/user-attachments/assets/18278a60-93b9-4aaf-b639-3f3120da4375)
 
-
-
-
-
+![mongo-gui-1](https://github.com/user-attachments/assets/48a684b1-f928-4602-882c-2b690eeeb33c)
 
 
 
