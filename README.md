@@ -29,7 +29,7 @@ phpmyadmin use theses credentials
 - user => root
 - password => root
 - url => http://localhost:8081/
-- 
+
 ![phpmyadmin](https://github.com/user-attachments/assets/847ddb11-e512-4f91-a7ad-fda73740c7a6)
 
 pgadmin use these credentials
