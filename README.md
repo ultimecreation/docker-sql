@@ -45,6 +45,7 @@ Note: when you create a new server of databases, you will be asked to enter a us
 mongodb GUI uses these credentials 
 - user => root
 - password => root
+- url => http://localhost:8081/
 
 ![mongo-gui](https://github.com/user-attachments/assets/18278a60-93b9-4aaf-b639-3f3120da4375)
 
