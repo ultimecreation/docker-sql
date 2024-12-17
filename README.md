@@ -2,6 +2,9 @@
 
 Feel free to fork this repository to get mysql, prostgres and mongodb available in local without a headache
 
+Note: here a tutorial to install docker desktop on your machine => https://docs.docker.com/desktop/
+![install-docker](https://github.com/user-attachments/assets/53a46350-976b-4c59-83e4-7ba41645af43)
+
 ## How to launch all containers along with adminer 
 Note Adminer is a simple GUI allowing you to manage your databases 
 
